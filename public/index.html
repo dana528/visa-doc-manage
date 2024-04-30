@@ -2,10 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=../src/App.js">
   <title>Redirecting...</title>
 </head>
 <body>
-  Redirecting...
+  <div id="app"></div>
+  <script>
+    // Fetch the content of src/App.js from the same directory
+    fetch('../src/App.js')  // Adjust the path to match the directory structure
+      .then(response => response.text())
+      .then(data => {
+        // Inject the content into the <div> with id="app"
+        document.getElementById('app').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error fetching App.js:', error);
+      });
+  </script>
 </body>
 </html>
